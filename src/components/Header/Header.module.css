@@ -1,0 +1,29 @@
+.appTopper {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px;
+    background-color: #253240;
+    color: #d0dfea;
+    text-transform: uppercase;
+  }
+  
+  .appTopper > h1 {
+    margin: 0 0 0.2em 0;
+    line-height: 1.2;
+  }
+  
+  .subtitle {
+    font-size: 12px;
+    color: #d0dfea;
+    text-transform: none;
+    text-decoration: none;
+  }
+  
+  .subtitle:hover {
+    text-decoration: underline;
+  }
+  
+  .logo {
+    width: 100%;
+    min-height: 100px;
+  }
