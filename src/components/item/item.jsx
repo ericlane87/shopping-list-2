@@ -27,9 +27,9 @@ function handleClickDelete(id,itemRefreshCallback) {
   });
 }
 
-function RefreshItem({ itemList,itemRefreshCallback }) {
+function RefreshItem({ itemList, itemRefreshCallback }) {
   return (
-    <div className="App">
+    <div className={'groceryItems'}>
       <Grid container spacing={2}
             fontFamily={['Franklin Gothic Medium', 'Arial Narrow', 'Arial', 'sans-serif']}>
         {itemList.map((item) => (
@@ -40,7 +40,9 @@ function RefreshItem({ itemList,itemRefreshCallback }) {
               sx={{
                 margin: '10px',
                 padding: '10px',
-                textAlign: "center"
+                textAlign: "center",
+                boxShadow: 3,
+                bgcolor: "#DDEEFF"
               }}
             >
               {item.is_purchased === false ? (
