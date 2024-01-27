@@ -42,7 +42,8 @@ function RefreshItem({ itemList, itemRefreshCallback }) {
                 padding: '10px',
                 textAlign: "center",
                 boxShadow: 3,
-                bgcolor: "#DDEEFF"
+                bgcolor: "#DDEEFF",
+                textTransform: "capitalize"
               }}
             >
               {item.is_purchased === false ? (
