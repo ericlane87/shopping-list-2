@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { newItem } from '../../ItemAPI/item.api';
 import './itemForm.css';
 import { ResetList } from '../../ItemAPI/item.api';
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 function AddItemForm(props) {
   const [nameValue, setNameValue] = useState('');
@@ -79,10 +79,17 @@ function AddItemForm(props) {
         value={UnitValue}
       />
       <span className="buttons">
-        <button type="submit">Save</button>
-        <button type="button" onClick={DeleteAll}>
+        <Button variant="contained" size="medium" type="submit">
+          Save
+        </Button>
+        <Button
+          variant="contained"
+          size="medium"
+          type="button"
+          onClick={DeleteAll}
+        >
           Reset
-        </button>
+        </Button>
       </span>
     </form>
   );
