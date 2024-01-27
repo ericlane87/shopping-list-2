@@ -30,7 +30,8 @@ function handleClickDelete(id,itemRefreshCallback) {
 function RefreshItem({ itemList,itemRefreshCallback }) {
   return (
     <div className="App">
-      <Grid container spacing={2}>
+      <Grid container spacing={2}
+            fontFamily={['Franklin Gothic Medium', 'Arial Narrow', 'Arial', 'sans-serif']}>
         {itemList.map((item) => (
           <Grid item xs={6} md={4} lg={4} key={item.ID} >
             <Box
@@ -44,8 +45,8 @@ function RefreshItem({ itemList,itemRefreshCallback }) {
             >
               {item.is_purchased === false ? (
                 <div>
-                  <div>{item.name}</div><br />
-                  <div> {item.quantity} {item.unit} </div><br />
+                  <h3>{item.name}</h3>
+                  <div>Quantity: {item.quantity} {item.unit}</div><br />
                     <Button
                       variant="contained"
                       color="primary"
@@ -60,7 +61,7 @@ function RefreshItem({ itemList,itemRefreshCallback }) {
                       Purchase
                     </Button><br />
                     
-                    <Button padding="100px"
+                    <Button
                       variant="contained"
                       color="primary"
                       size="small"
@@ -76,8 +77,8 @@ function RefreshItem({ itemList,itemRefreshCallback }) {
                 </div>
               ) : (
                 <div>
-                  <div>{item.name}</div><br />
-                  <div>{item.quantity} {item.unit}</div>
+                  <h3>{item.name}</h3>
+                  <div>Quantity: {item.quantity} {item.unit}</div><br />
                   <Button id={item.ID} 
                     variant='outlined'
                     size='small'
@@ -90,7 +91,7 @@ function RefreshItem({ itemList,itemRefreshCallback }) {
                     Purchased
                   </Button><br />
 
-                  <Button padding="100px"
+                  <Button
                     variant="outlined"
                     color="info"
                     size="small"
