@@ -5,7 +5,7 @@ const pool = require('../modules/pool.js');
 router.get('/', (req, res) => {
     // When you fetch all things in these GET routes, strongly encourage ORDER BY
     // so that things always come back in a consistent order
-    const sqlText = `SELECT * FROM shoppingList ORDER BY is_purchased, name ASC;`;
+    const sqlText = `SELECT * FROM shoppinglist ORDER BY is_purchased, name ASC;`;
     pool
       .query(sqlText)
       .then((result) => {
@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 
   router.post('/', (req, res) => {
     const item = req.body;
-    const sqlText = `INSERT INTO shoppingList (name, quantity, unit) 
+    const sqlText = `INSERT INTO shoppinglist (name, quantity, unit) 
                       VALUES($1,$2,$3)`;
     // Let sql sanitize your inputs (NO Bobby Drop Tables here!)
     // the $1, $2, etc get substituted with the values from the array below
@@ -39,7 +39,7 @@ router.get('/', (req, res) => {
 
   router.put('/:id', (req, res) => {
     const id = req.params.id;
-    const sqlText = `UPDATE shoppingList
+    const sqlText = `UPDATE shoppinglist
     SET
         is_purchased = True
     WHERE
@@ -59,7 +59,7 @@ router.get('/', (req, res) => {
   router.delete('/:id', (req, res) => {
     const id = req.params.id;
 
-    const sqlText = 'DELETE  FROM shoppingList WHERE id = $1;';
+    const sqlText = 'DELETE  FROM shoppinglist WHERE id = $1;';
     // Let sql sanitize your inputs (NO Bobby Drop Tables here!)
     // the $1, $2, etc get substituted with the values from the array below
     pool
@@ -76,7 +76,7 @@ router.get('/', (req, res) => {
 
 
   router.delete('/', (req, res) => {
-    const sqlText = 'DELETE  FROM shoppingList;';
+    const sqlText = 'DELETE  FROM shoppinglist;';
     // Let sql sanitize your inputs (NO Bobby Drop Tables here!)
     // the $1, $2, etc get substituted with the values from the array below
     pool
