@@ -32,10 +32,11 @@ function RefreshItem({ itemList,itemRefreshCallback }) {
     <div className="App">
       <Grid container spacing={2}>
         {itemList.map((item) => (
-          <Grid item xs={8} md={6} lg={3} key={item.ID}>
+          <Grid item xs={12} md={6} lg={6} key={item.ID} >
             <Box
               borderRadius={5}
               border={'3px solid rgb(113, 132, 48)'}
+              alignContent={'center'}
               sx={{
                 margin: '10px',
                 padding: '10px',
@@ -48,18 +49,18 @@ function RefreshItem({ itemList,itemRefreshCallback }) {
                   <span>{item.unit} </span>
                   <Button
                     variant="contained"
-                    color="secondary"
+                    color="primary"
                     size="small"
                     onClick={() => handleMarkAsPurchased(item.id, itemRefreshCallback)}
                   >
-                     Purchased
+                     Purchase
                   </Button>
                   
                   <Button padding="100px"
                     variant="contained"
-                    color="secondary"
+                    color="primary"
                     size="small"
-                    onClick={() => handleClickDelete(item.id,itemRefreshCallback)}
+                    onClick={() => handleClickDelete(item.id, itemRefreshCallback)}
                   >
                     Delete
                   </Button>
@@ -69,7 +70,27 @@ function RefreshItem({ itemList,itemRefreshCallback }) {
                   {item.name}
                   <span>  {item.quantity}</span>
                   <span>{item.unit}</span>
-                  <button id={item.ID} disabled>Purchased</button>
+                  <Button id={item.ID} 
+                    variant='outlined'
+                    size='small'
+                    disabled>  
+                    Purchased
+                  </Button>
+
+                  <Button padding="100px"
+                    variant="outlined"
+                    color="info"
+                    size="small"
+                    sx={{
+                      ":hover": {
+                        bgcolor: "#3AF",
+                        color: "white"
+                      }
+                    }}
+                    onClick={() => handleClickDelete(item.id, itemRefreshCallback)}
+                  >
+                    Delete
+                  </Button>
                 </div>
               )}
             </Box>
