@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { newItem } from '../../ItemAPI/item.api';
 import './itemForm.css';
 import { ResetList } from '../../ItemAPI/item.api';
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 function AddItemForm(props) {
   const [nameValue, setNameValue] = useState('');
@@ -52,7 +52,7 @@ function AddItemForm(props) {
   };
 
   return (
-    <Box component="form" onSubmit={handleSubmitItem} className="spacing">
+    <form className="spacing" onSubmit={handleSubmitItem}>
       <TextField
         className="input-fields"
         label="Name:"
@@ -67,7 +67,6 @@ function AddItemForm(props) {
         className="input-fields"
         label="Quantity:"
         id="quantity"
-        margin="5px"
         onChange={handleChangeOfQuantity}
         value={quantityValue}
       />
@@ -79,12 +78,20 @@ function AddItemForm(props) {
         onChange={(event) => setUnitValue(event.target.value)}
         value={UnitValue}
       />
-
-      <button type="submit">Save</button>
-      <button type="button" onClick={DeleteAll}>
-        Reset
-      </button>
-    </Box>
+      <span className="buttons">
+        <Button variant="contained" size="medium" type="submit">
+          Save
+        </Button>
+        <Button
+          variant="contained"
+          size="medium"
+          type="button"
+          onClick={DeleteAll}
+        >
+          Reset
+        </Button>
+      </span>
+    </form>
   );
 }
 
